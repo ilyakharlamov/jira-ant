@@ -8,4 +8,5 @@
     <taskdef name="jiraCustomFieldIterator" classname="org.jirant.tasks.JIRACustomFieldIterator" classpathref="class.path" loaderref="jirant"/>
     <taskdef name="jiraCustomField" classname="org.jirant.tasks.JIRACustomFieldValue" classpathref="class.path" loaderref="jirant"/>
     <taskdef name="jiraChangeLogIterator" classname="org.jirant.tasks.JIRAChangeLogIterator" classpathref="class.path" loaderref="jirant"/>
+    <taskdef name="jiraPostComment" classname="org.jirant.tasks.JIRAPostCommentTask" classpathref="class.path" loaderref="jirant"/>
 </antlib>

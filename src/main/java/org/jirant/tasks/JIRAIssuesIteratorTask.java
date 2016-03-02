@@ -1,15 +1,12 @@
 package org.jirant.tasks;
 import java.util.ArrayList;
 
+import org.apache.tools.ant.Task;
+import org.apache.tools.ant.TaskContainer;
+
 import net.rcarz.jiraclient.Issue;
 import net.rcarz.jiraclient.JiraClient;
 import net.rcarz.jiraclient.JiraException;
-
-import org.apache.tools.ant.BuildEvent;
-import org.apache.tools.ant.BuildException;
-import org.apache.tools.ant.BuildListener;
-import org.apache.tools.ant.Task;
-import org.apache.tools.ant.TaskContainer;
 
 /**
  * This custom Ant task 
