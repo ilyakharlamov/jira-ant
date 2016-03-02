@@ -1,0 +1,59 @@
+<project name="JIRA+Ant integration" default="build" basedir=".">
+
+    <property name="build" value="${basedir}/target"/>
+    <property name="src" value="${basedir}/src/main/java"/>
+    <property name="doc" value="${basedir}/doc"/>
+    <property name="version" value="1.0.0"/>
+
+    <property name="document.title" value="Ant Library for interaction with JIRA"/>
+        
+    <target name="zip" depends="build,document">
+        <zip destfile="${build}/jirant-${version}.zip">
+            <fileset dir="${build}" includes="jirant-${version}.jar"/>
+            <fileset dir="${build}/dependency" includes="*.*"/>
+            <fileset dir="${doc}"/>
+        </zip>
+    </target>
+    
+    <target name="document" >
+        <property name="document.xml" value="${basedir}/src/main/resources/org/jirant/tasks/jiraTasks.xml"/>
+        <property name="document.src" value="${src}"/>
+        <property name="document.out" value="${doc}"/>
+            
+        <ant antfile="${basedir}/../AntDocumentor/build.xml" dir="${basedir}/../AntDocumentor"/>
+    </target>
+
+	<target name="eclipse">
+	    <exec dir="." executable="cmd">
+            <arg value="/c"/>
+            <arg value="mvn"/>
+            <arg value="eclipse:eclipse" />
+	    </exec>
+    </target>
+	
+    <target name="build">
+        <exec dir="." executable="cmd">
+            <arg value="/c"/>
+            <arg value="mvn"/>
+            <arg value="package"/>
+            <arg value="install:install"/>
+        </exec>
+    </target>
+	
+    <target name="clean">
+        <exec dir="." executable="cmd" failonerror="true">
+            <arg value="/c"/>
+            <arg value="mvn"/>
+            <arg value="clean"/>
+        </exec>
+    </target>
+    
+    <target name="eclipse-wps">
+        <exec dir="." executable="cmd">
+            <arg value="/c"/>
+            <arg value="mvn"/>
+            <arg value="-Declipse.workspace=${basedir}/.."/>
+        	<arg value="eclipse:configure-workspace" />
+        </exec>
+    </target>
+</project>

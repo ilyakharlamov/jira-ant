@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<antlib>
+  <!-- Tasks -->
+    <taskdef name="jiraConnection" classname="org.jirant.tasks.JIRAConnectorTask" classpathref="class.path" loaderref="jirant"/>
+    <taskdef name="jiraCounter" classname="org.jirant.tasks.JIRACounterTask" classpathref="class.path" loaderref="jirant"/>
+    <taskdef name="jiraIterator" classname="org.jirant.tasks.JIRAIssuesIteratorTask" classpathref="class.path" loaderref="jirant"/>
+    <taskdef name="jiraFind" classname="org.jirant.tasks.JIRASingleIssueSelection" classpathref="class.path" loaderref="jirant"/>
+    <taskdef name="jiraCustomFieldIterator" classname="org.jirant.tasks.JIRACustomFieldIterator" classpathref="class.path" loaderref="jirant"/>
+    <taskdef name="jiraCustomField" classname="org.jirant.tasks.JIRACustomFieldValue" classpathref="class.path" loaderref="jirant"/>
+    <taskdef name="jiraChangeLogIterator" classname="org.jirant.tasks.JIRAChangeLogIterator" classpathref="class.path" loaderref="jirant"/>
+</antlib>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="JIRA" default="default" basedir=".">
+    <description>
+            This is a sample of using JIRAnt. It connects to JIRA and count how many unresolved issues are assigned to your
+    </description>
+	
+    <path id="class.path">
+        <fileset dir="${basedir}/lib">
+            <include name="*.jar"/>
+        </fileset>
+    </path>
+    
+	<taskdef resource="org/jirant/tasks/jiraTasks.xml" classpathref="class.path"/>
+
+    <target name="default" description="description">
+       <jiraConnection login="YOUR_JIRA_LOGIN" password="YOUR_JIRA_PASSWORD" jira="http://myjira.mydomain.com/jira"/>
+    	<jiraCounter jql="assignee = currentUser() AND resolution = unresolved" to="cnt"/>
+    	<echo>There are ${cnt} unresolved issues assigned to you </echo>
+    </target>
+
+</project>
